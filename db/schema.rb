@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_08_31_214938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.text "body"
+    t.string "image_url"
+    t.string "url"
+    t.text "tagged_as"
+    t.text "categorized_under"
+    t.string "contact_name"
+    t.string "contact_title"
+    t.string "contact_phone"
+    t.string "contact_email"
+    t.string "author_name"
+    t.string "author_url"
+    t.datetime "posted_date_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "scrapes", id: :serial, force: :cascade do |t|
+    t.string "name"
+  end
 
 end
