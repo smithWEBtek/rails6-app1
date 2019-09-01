@@ -14,7 +14,7 @@ class Scrape < ApplicationRecord
         date: d.css('.fl-post-grid-date').text,
         url_full_post: d.css('a.fl-post-grid-more').attr('href')
       )
-      if i.save
+      if i.save && i.url_full_post
         self.get_full_post(i)
       end
     end
@@ -38,7 +38,6 @@ class Scrape < ApplicationRecord
         author_name: d.css('.byline.author a').children[0].text,
         author_url: d.css('.byline.author a').attr('href').value,
         posted_date_time: d.css('time.updated').attr('datetime').value
-        # image_url:
         )
         puts '*'
     end
