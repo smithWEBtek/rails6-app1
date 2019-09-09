@@ -39,7 +39,7 @@ class Scrape < ApplicationRecord
         author_url: d.css('.byline.author a').attr('href').value,
         posted_date_time: d.css('time.updated').attr('datetime').value
         )
-        puts '*'
+        puts '***********'
     end
   end
 end
