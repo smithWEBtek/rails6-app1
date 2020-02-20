@@ -1,0 +1,8 @@
+<h1>All Categories</h1>
+
+<% @categories.each do |c| %>
+  <div class='categories__category'>
+    <h3><%= c.title %>:</h3>
+    <p><%= c.description %></p>
+  </div> 
+<% end %>
