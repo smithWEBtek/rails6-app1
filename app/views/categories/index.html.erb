@@ -2,7 +2,7 @@
 
 <% @categories.each do |c| %>
   <div class='categories__category'>
-    <h3><%= c.title %>:</h3>
+    <h3><%= link_to c.title, category_path(c) %>:</h3>
     <p><%= c.description %></p>
   </div> 
 <% end %>
