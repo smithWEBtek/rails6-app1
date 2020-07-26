@@ -14,10 +14,29 @@ document.addEventListener('DOMContentLoaded', function () {
       center: '',
       right: 'today,dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
-    defaultDate: '2020-07-12',
+    titleFormat: {
+      year: 'numeric', month: 'long', day: 'numeric'
+    },
+    dateClick: function (info) {
+      console.log('dateClick: ' + info.dateStr);
+      console.log('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+      console.log('Current view: ' + info.view.type);
+      // change the day's background color just for fun
+      info.dayEl.style.backgroundColor = 'lightblue';
+    },
+    eventClick: function (eventClickInfo) {
+      console.log("EVENT: ", eventClickInfo)
+    },
+    select: function (info) {
+      console.log('info.startStr: ' + info.startStr + ' to ' + info.endStr);
+      console.log('info: ', info);
+    },
+    initialView: 'dayGridMonth',
+    selectable: true,
+    editable: true,
+    eventStartEditable: true,
     navLinks: true, // can click day/week names to navigate views
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
     events: [
       {
         title: 'All Day Event',
